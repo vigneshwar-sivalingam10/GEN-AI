@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import session, engine
 import database_modules
 from sqlalchemy.orm import Session
-
+from mangum import Mangum
 
 
 app = FastAPI()
@@ -99,3 +99,5 @@ def delete_product(id: int, db: Session = Depends(get_db)):
     else:
         return {"error": f"No product found with id {id} to delete."}
 # ...existing code...
+
+handler = Mangum(app)
