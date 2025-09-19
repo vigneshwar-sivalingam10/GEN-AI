@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from modules import Product as product
+from database_modules import Product as product
 from fastapi.middleware.cors import CORSMiddleware
 from database import session, engine
 import database_modules
