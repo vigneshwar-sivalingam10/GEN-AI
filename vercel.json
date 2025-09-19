@@ -4,5 +4,8 @@
     { "src": "frontend/package.json", "use": "@vercel/static-build" },
     { "src": "api/**/*.py", "use": "@vercel/python" }
   ],
-  "routes": [{ "src": "/api/(.*)", "dest": "api/main.py" }]
+  "routes": [
+    { "src": "/api/(.*)", "dest": "api/main.py" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
