@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import session, engine
 import database_modules
 from sqlalchemy.orm import Session
-from mangum import Mangum
+import mangum
 
 
 app = FastAPI()
@@ -87,8 +87,6 @@ def update_the_product(id:int, product: product, db:Session = Depends(get_db) ):
     
   
 
-# ...existing code...
-
 @app.delete("/products/{id}")
 def delete_product(id: int, db: Session = Depends(get_db)):
     db_product = db.query(database_modules.Product).filter(database_modules.Product.id == id).first()
@@ -98,6 +96,4 @@ def delete_product(id: int, db: Session = Depends(get_db)):
         return "product is deleted successfully"
     else:
         return {"error": f"No product found with id {id} to delete."}
-# ...existing code...
-
-handler = Mangum(app)
+handler = mangum.Mangum(app)
