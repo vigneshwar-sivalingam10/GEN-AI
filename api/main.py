@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from database_modules import Product as product
+from products import Product as product
 from fastapi.middleware.cors import CORSMiddleware
 from database import session, engine
 import database_modules
@@ -45,10 +45,6 @@ def get_db():
 @app.get("/")
 def home(): 
     return "welcome home boys"
-
-
-
-
 
 @app.get ("/products")
 def get_all_products(db:Session = Depends(get_db)):

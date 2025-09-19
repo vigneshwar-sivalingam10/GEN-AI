@@ -7,14 +7,14 @@
       "config": { "distDir": "build" }
     },
     {
-      "src": "api/**/*.py",
+      "src": "api/*.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1.py"
+      "dest": "/api/main.py"
     },
     {
       "src": "/(.*)",
