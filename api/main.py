@@ -42,7 +42,7 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/")
+@app.get("/health")
 def home(): 
     return "welcome home boys"
 
