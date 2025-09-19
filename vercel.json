@@ -6,6 +6,6 @@
   ],
   "routes": [
     { "src": "/venv/(.*)", "dest": "venv/main.py" },
-    { "src": "/(.*)", "dest": "frontend/$1" }
+  { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
